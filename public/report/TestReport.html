@@ -1,0 +1,850 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../css/family.css" rel="stylesheet" />
+    <!--<link href="../lib/jquery.mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" />-->
+    <link href="../css/jqm-demos.css" rel="stylesheet" />
+
+    <script src="../lib/jquery/jquery-2.1.1.min.js"></script>
+
+    <script src="../lib/underscore/underscore-min.js"></script>
+    <script src="../lib/backbone/backbone-min.js"></script>
+
+    <link href="../lib/backgrid/lib/backgrid.css" rel="stylesheet" />
+    <script src="../lib/backgrid/lib/backgrid.js"></script>
+
+    <link href="../css/index.css" rel="stylesheet" />
+    <script src="TestReport.js"></script>
+    <style type="text/css">
+        td {
+            border-style: none;
+            border-color: inherit;
+            border-width: medium;
+            padding-top: 1px;
+            padding-right: 1px;
+            padding-left: 1px;
+            color: black;
+            font-size: 11.0pt;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            font-family: Tahoma, sans-serif;
+            text-align: general;
+            vertical-align: bottom;
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            page-break-after: always;
+            page-break-before: always;
+            page-break-inside: avoid;
+        }
+
+        table#t01 {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            table#t01 td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            table#t01 tr:nth-child(even) {
+                background-color: #eee;
+            }
+
+            table#t01 tr:nth-child(odd) {
+                background-color: #fff;
+            }
+
+            table#t01 th {
+                background-color: black;
+                color: white;
+            }
+
+
+        tbody tr {
+            page-break-before: always;
+            page-break-inside: avoid;
+        }
+    </style>
+</head>
+<body>
+
+    <div data-role="page" data-title="Anda-Stock" class="jqm-demos ui-responsive-panel">
+
+
+        <div role="main" id="main" class="ui-content jqm-content jqm-fullwidth">
+            <h1 style="text-align: center;">Andamania Stock</h1>
+            <h2>Supplier Code (4 Letters)</h2>
+
+            <table border="0" cellpadding="0" cellspacing="0" width="581" style='border-collapse: collapse; table-layout: fixed; width: 436pt'>
+                <col width="72" style='width: 54pt'>
+                <col width="130" style='mso-width-source: userset; mso-width-alt: 4160; width: 98pt'>
+                <col width="91" style='mso-width-source: userset; mso-width-alt: 2912; width: 68pt'>
+                <col width="72" span="1" style='width: 54pt'>
+                <tr height="19" style='height: 14.25pt'>
+                    <td height="19" style='height: 14.25pt'></td>
+                    <td class="xl78">ชื่อผู้ขาย</td>
+                    <td class="xl78">รห้ส </td>
+                    <td class="xl78">เครดิต</td>
+                </tr>
+                <tr height="19" style='height: 14.25pt'>
+                    <td height="19" colspan="4" style='height: 14.25pt; mso-ignore: colspan'></td>
+                </tr>
+                <tr height="19" style='height: 14.25pt'>
+                    <td height="19" style='height: 14.25pt'></td>
+                    <td class="xl80">เงินสด</td>
+                    <td align="left">CASH</td>
+                    <td class="xl79">&nbsp;</td>
+                </tr>
+                <tr height="19" style='height: 14.25pt'>
+                    <td height="19" style='height: 14.25pt'></td>
+                    <td class="xl80">รีฟันเจิน</td>
+                    <td align="left">REFG</td>
+                    <td align="right">30</td>
+                </tr>
+                <tr height="19" style='height: 14.25pt'>
+                    <td height="19" style='height: 14.25pt'></td>
+                    <td class="xl80"><span style='mso-spacerun: yes'>&nbsp;</span>Super cheap</td>
+                    <td align="left">SCHP</td>
+                    <td align="right">30</td>
+                </tr>
+                <tr height="19" style='height: 14.25pt'>
+                    <td height="19" style='height: 14.25pt'></td>
+                    <td class="xl80">โฟร์โมสต์</td>
+                    <td align="left">FORM</td>
+                    <td align="right">30</td>
+                </tr>
+                <tr height="19" style='height: 14.25pt'>
+                    <td height="19" style='height: 14.25pt'></td>
+                    <td class="xl80">วอลล์</td>
+                    <td align="left">WALL</td>
+                    <td align="right">30</td>
+                </tr>
+                <tr height="19" style='height: 14.25pt'>
+                    <td height="19" style='height: 14.25pt'></td>
+                    <td class="xl81">เขาหลัก โกลเด็น</td>
+                    <td align="left">GOLD</td>
+                    <td align="right">15</td>
+                </tr>
+                <tr height="19" style='height: 14.25pt'>
+                    <td height="19" style='height: 14.25pt'></td>
+                    <td class="xl81">เขาหลักการไฟฟ้า</td>
+                    <td align="left">ELEC</td>
+                    <td align="right">15</td>
+                </tr>
+                <tr height="19" style='height: 14.25pt'>
+                    <td height="19" style='height: 14.25pt'></td>
+                    <td class="xl81">Home pro</td>
+                    <td align="left">HOME</td>
+                    <td align="right">7</td>
+                </tr>
+                <tr height="19" style='height: 14.25pt'>
+                    <td height="19" style='height: 14.25pt'></td>
+                    <td class="xl81">สาธิต</td>
+                    <td align="left">SATT</td>
+                    <td align="right">7</td>
+                </tr>
+                <tr height="19" style='height: 14.25pt'>
+                    <td height="19" style='height: 14.25pt'></td>
+                    <td class="xl81">Bon Caf&eacute;</td>
+                    <td align="left">BONC</td>
+                    <td align="right">15</td>
+                </tr>
+                <![if supportMisalignedColumns]>
+                <![endif]>
+            </table>
+
+            <br />
+            <h2>Activity: In</h2>
+
+<!--            <div style="margin: 30px">
+                <table id="t01">
+                    <thead>
+                        <tr class="head">
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>test</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Jill</td>
+                            <td>Smith</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Eve</td>
+                            <td>Jackson</td>
+                            <td>94</td>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>80</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>-->
+
+
+            <h2>Activity :Out</h2>
+
+            <div id="example-1-result"></div>
+
+        </div>
+
+
+    </div>
+    <!-- /page -->
+
+</body>
+</html>

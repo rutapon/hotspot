@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../css/family.css" rel="stylesheet" />
+    <!--<link href="../lib/jquery.mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" />-->
+    <link href="../css/jqm-demos.css" rel="stylesheet" />
+
+    <script src="../lib/jquery/jquery-2.1.1.min.js"></script>
+<!--    <script src="../lib/jquery.mobile/jquery.mobile-1.4.5.min.js"></script>-->
+
+    <script src="../lib/underscore/underscore-min.js"></script>
+    <script src="../lib/backbone/backbone-min.js"></script>
+
+    <link href="../lib/backgrid/lib/backgrid.css" rel="stylesheet" />
+    <script src="../lib/backgrid/lib/backgrid.js"></script>
+
+    <script src="../app/models/product.js"></script>
+    <script src="../app/collections/products.js"></script>
+
+    <script src="../app/views_report/ReportPurchaseSupplier.js"></script>
+
+    <link href="../css/index.css" rel="stylesheet" />
+    <script src="ReportPurchaseSupplierReport.js"></script>
+
+    <style type="text/css">
+        td {
+            border-style: none;
+            border-color: inherit;
+            border-width: medium;
+            padding-top: 1px;
+            padding-right: 1px;
+            padding-left: 1px;
+            color: black;
+            font-size: 11.0pt;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            font-family: Tahoma, sans-serif;
+            text-align: general;
+            vertical-align: bottom;
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            page-break-after: always;
+            page-break-before: always;
+            page-break-inside: avoid;
+        }
+
+        table#t01 {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            table#t01 td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            table#t01 tr:nth-child(even) {
+                background-color: #eee;
+            }
+
+            table#t01 tr:nth-child(odd) {
+                background-color: #fff;
+            }
+
+            table#t01 th {
+                background-color: black;
+                color: white;
+            }
+
+
+        /*.ReportStockCardEach :not(:first-child){
+            
+            page-break-inside: avoid;
+        }*/
+        
+
+        tbody tr {
+            page-break-before: always;
+            page-break-inside: avoid;
+        }
+
+        .ui-content {
+            padding: 0;
+        }
+    </style>
+
+    <script>    
+    </script>
+</head>
+<body>
+
+    <div data-role="page" data-title="Anda-Stock" class="jqm-demos ui-responsive-panel">
+
+        <div role="main" id="main" class="ui-content jqm-content jqm-fullwidth">
+
+            <h1 style="text-align: center;">report</h1>
+            <h3 class="h_detail" style="text-align: center;"></h3>
+
+            <div class="ReportPurchaseSupplierResult">
+
+                <script type="text/template" class="ReportPurchaseSupplier-template">
+                    <br />
+                    <div class="productInfo jqm-content">
+                        <h2></h2>
+                    </div>
+
+                    <div class="ReportPurchaseSupplierTable"></div>
+
+                </script>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- /page -->
+
+</body>
+</html>

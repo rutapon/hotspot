@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" media="screen" href="handsontable.css">
+    <link rel="stylesheet" media="screen" href="pikaday/pikaday.css">
+    <script src="pikaday/pikaday.js"></script>
+    <script src="moment/moment.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="handsontable.js"></script>
+
+    <link rel="stylesheet" media="screen" href="css/samples.css?20140331">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="example1"></div>
+    <style>
+        .handsontable td.htInvalid {
+            background-color: #ffff00 !important;
+        }
+    </style>
+    <script>
+        function getCarData() {
+            return [
+                 ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+               ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+              ["Chrysler", 2004, "yellow", "black"],
+              ["Nissan", 2009, "black", "black"],
+              ["Nissan", 2006, "blue", "blue"],
+              ["Chrysler", 2004, "yellow", "black"],
+              ["Volvo", 2012, "white", "gray"]
+            ];
+        }
+        var container = document.getElementById('example1'),
+          hot;
+
+        hot = new Handsontable(container, {
+            data: getCarData(),
+            startRows: 7,
+            startCols: 4,
+            colHeaders: ['Car', 'Year', 'Chassis color', 'Bumper color'],
+            columns: [
+              { readOnly: true },
+              {
+                  type: 'numeric',
+                  strict: true
+              },
+              {
+                  type: 'dropdown',
+                  source: function () {
+                      console.log('call source');
+                      return ['yellow', 'red', 'orange', 'green', 'blue', 'gray', 'black', 'white'];
+                  },
+                  //editor: false
+              },
+              {
+                  type: 'autocomplete',
+                  source: ['yellow', 'red', 'orange', 'green', 'blue', 'gray', 'black', 'white'],
+                  filter: false
+              }
+            ]
+        });
+    </script>
+</body>
+</html>

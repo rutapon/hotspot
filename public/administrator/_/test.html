@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <title></title>
+    <script src="../lib/underscore/underscore-min.js"></script>
+    <script src="../lib/jquery/jquery-2.1.1.min.js"></script>
+    <link href="../lib/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet" />
+    <!--<link href="../lib/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />-->
+    <script src="../lib/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <!--    <link href="../lib/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" rel="stylesheet" />-->
+    <!--<link href="../lib/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css" rel="stylesheet" />-->
+
+    <script src="../lib/xdr.js"></script>
+    <script src="../lib/socket.io-1.2.1.js"></script>
+
+    <script src="../lib/step/step.js"></script>
+    <script src="../lib/async/async.min.js"></script>
+
+    <script src="../NwLib/NwLib.js"></script>
+    <script src="../NwUtil/NwDataMsgObj.js"></script>
+
+    <script src="../NwConn/NwWsClient.js"></script>
+    <script src="../service_conn/NwServiceConn.js"></script>
+
+    <script src="../lib/backbone/backbone-min.js"></script>
+    <script src="../app/models/UserModel.js"></script>
+
+    <script src="app.js"></script>
+    <script src="test.js"></script>
+
+</head>
+<body>
+
+    <!-- Checkboxradio -->
+    <h2 class="demoHeaders">Checkboxradio</h2>
+    <form style="margin-top: 1em;">
+        <div id="radioset">
+            <input type="radio" id="radio1" name="radio"><label for="radio1">Choice 1</label><br />
+            <input type="radio" id="radio2" name="radio"><label for="radio2">Choice 2</label><br />
+            <input type="radio" id="radio3" name="radio"><label for="radio3">Choice 3</label><br />
+        </div>
+
+
+    </form>
+
+    <!-- Controlgroup -->
+    <h2 class="demoHeaders">Controlgroup</h2>
+
+
+    <button>create new list</button>
+    <br />
+    <br />
+
+    <div>
+        <fieldset>
+            <legend>Main</legend>
+            <div class="controlgroup">
+
+                <label for="list-type" class="ui-controlgroup-label">type</label>
+                <select class="list-type">
+                    <option>Store</option>
+                    <option>OE</option>
+
+                </select>
+                <!--<label for="transmission-standard">Standard</label>-->
+                <!--<input type="radio" name="transmission" id="transmission-standard">-->
+                <!--<label for="transmission-automatic">Automatic</label>
+                <input type="radio" name="transmission" id="transmission-automatic">-->
+                <label for="insurance">Insurance</label>
+                <input type="checkbox" name="insurance" id="insurance">
+                <label for="horizontal-spinner" class="ui-controlgroup-label"># of cars</label>
+                <input class="horizontal-spinner ui-spinner-input">
+                <button>Remove</button>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>HR</legend>
+         
+        </fieldset>
+    </div>
+
+</body>
+</html>

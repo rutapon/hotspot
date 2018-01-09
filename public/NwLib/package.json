@@ -1,0 +1,16 @@
+{
+    "name": "NwLib",
+    "description": "JavaScript's functional programming helper library.",
+    "keywords": [
+        "util",
+        "functional",
+        "server",
+        "client",
+        "browser"
+    ],
+    "author": {
+        "name": "Newww"
+    },
+    "main": "NwLib.js",
+    "version": "19/07/57"
+}

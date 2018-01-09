@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../lib/underscore/underscore-min.js"></script>
+    <script src="../lib/jquery/jquery-2.1.1.min.js"></script>
+    <link href="../lib/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet" />
+    <!--<link href="../lib/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />-->
+    <script src="../lib/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <!--    <link href="../lib/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" rel="stylesheet" />-->
+    <!--<link href="../lib/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css" rel="stylesheet" />-->
+
+    <script src="../lib/xdr.js"></script>
+    <script src="../lib/socket.io-1.2.1.js"></script>
+
+    <script src="../lib/step/step.js"></script>
+    <script src="../lib/async/async.min.js"></script>
+
+    <script src="../NwLib/NwLib.js"></script>
+    <script src="../NwUtil/NwDataMsgObj.js"></script>
+
+    <script src="../NwConn/NwWsClient.js"></script>
+    <script src="../service_conn/NwServiceConn.js"></script>
+
+    <script src="../lib/backbone/backbone-min.js"></script>
+
+    <script src="../app/models/UserModel.js"></script>
+    <script src="collections/UsersCollection.js"></script>
+
+    <link href="../lib/jstree/dist/themes/default/style.min.css" rel="stylesheet" />
+    <script src="../lib/jstree/dist/jstree.min.js"></script>
+    <script src="views/createUserItemView.js"></script>
+    <script src="views/createUserView.js"></script
+        >
+    <script src="app.js"></script>
+
+    <script src="CreateUser.js"></script>
+
+</head>
+<body>
+    <h2 class="demoHeaders">Cleate User:
+        <label id="dpmName"></label>
+    </h2>
+
+    <button class="createButton">create new user</button>
+    <br />
+    <br />
+    <div id="jstree_demo_div"></div>
+
+    <div id="UserView">
+        <div>
+            <fieldset>
+                <legend>staff1</legend>
+                <!--<div class="controlgroup">-->
+
+
+                <!--     <label class="ui-controlgroup-label">main</label>
+                <label class="ui-controlgroup-label">-</label>
+                <label class="ui-controlgroup-label">Store</label>-->
+
+                <!--<label for="transmission-standard">Standard</label>-->
+                <!--<input type="radio" name="transmission" id="transmission-standard">-->
+                <!--<label for="transmission-automatic">Automatic</label>
+                <input type="radio" name="transmission" id="transmission-automatic">-->
+
+                <!--              <label>
+                        <input type="checkbox" checked />using</label>
+                    <label>
+                        <input type="checkbox" checked />using</label>
+                    <label>
+                        <input type="checkbox" checked />using</label>-->
+
+                <label>Password: </label>
+                <label class="userPassword">12345</label>
+                <button>Change Password</button>
+                <br />
+
+                <label class="ui-controlgroup-label">Menu Permission:</label>
+                <div id="jstree"></div>
+                <br />
+                <!--<button>Rename</button>-->
+                <button>Remove User</button>
+                <!--</div>-->
+            </fieldset>
+        </div>
+
+        <script type="text/template" id="ItemTemplate">
+        <fieldset>
+            <legend><%- user %>-<%- type %></legend>         
+               <label>Password: </label>
+                <label class="userPassword"><%- pass %></label>
+                <button>Change Password</button>
+                <br />
+
+                <label class="ui-controlgroup-label">Menu Permission:</label>
+                <div class="jstree"></div>
+            <br>
+             <button class="removeButton">Remove</button>        
+        </fieldset>
+        </script>
+
+    </div>
+
+    <div id="dialog-form" title="Create New User">
+        <p class="validateTips">All form fields are required.</p>
+
+        <form>
+            <fieldset>
+
+                <label class="ui-controlgroup-label">Type: </label>
+                <select id="userType" class="selectmenu">
+                    <option>admin</option>
+                    <option>staff_main</option>
+                    <option>staff_support</option>
+                </select>
+                <br />
+                <br />
+                <label for="userName">Name: </label>
+                <input type="text" placeholder="name" name="name" id="userName" value="" class="text ui-widget-content ui-corner-all" />
+                <label for="userPass">Password: </label>
+                <input type="text" placeholder="password" name="name" id="userPass" value="" class="text ui-widget-content ui-corner-all" />
+            </fieldset>
+        </form>
+    </div>
+    <div id="dialog-confirm" title="Delete?">
+        <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+    </div>
+
+
+</body>
+</html>

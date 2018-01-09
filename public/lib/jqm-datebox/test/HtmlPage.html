@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.css" rel="stylesheet" />
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/async/2.0.1/async.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lokijs/1.4.1/lokijs.min.js"></script>-->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
+
+    <link href="../jqm-datebox.min.css" rel="stylesheet" />
+    <script src="../jqm-datebox.core.min.js"></script>
+    <script src="../jqm-datebox.mode.calbox.min.js"></script>
+
+    <!--<link rel="stylesheet" type="text/css" href="http://cdn.jtsage.com/datebox/latest/jqm-datebox.min.css">
+    <script type="text/javascript" src="http://cdn.jtsage.com/datebox/latest/jqm-datebox.core.min.js"></script>
+    <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>-->
+    <script>
+        function addDays(date, days) {
+            var result = new Date(date);
+            result.setDate(result.getDate() + days);
+            return result;
+        }
+        function addMonths(date, months) {
+            var result = new Date(date);
+            result.setMonth(result.getMonth() + months);
+            return result;
+        }
+        function addYears(date, years) {
+            var result = new Date(date);
+            result.setYear(result.getYear() + years);
+            return result;
+        }
+
+
+        $(function () {
+            $('#someinput').datebox({
+                mode: "calbox",
+                useFocus: true,
+                //defaultValue: new Date(),
+                showInitialValue: true
+                //afterToday: true,
+
+            });
+            $('#someinput').val(new Date().toISOString().slice(0, 10));
+
+            var dateStr = $('#someinput').val();
+
+            console.log(dateStr, new Date(dateStr), new Date(dateStr).toISOString());
+            console.log(new Date(dateStr).toISOString().slice(0, 10), addDays(addMonths(new Date(dateStr), 1), -1).toISOString().slice(0, 10));
+
+            var i = 1;
+            
+            console.log(i.(2));
+            //var i = 1;
+            //setInterval(function () {
+            //    //i++;
+            //    $('#someinput').val(addMonths(new Date(), i).toISOString().slice(0, 10));
+            //    //$('#someinput').datebox({             
+            //    //    defaultValue: new Date(),
+            //    //});
+            //}, 1000);
+        });
+
+    </script>
+</head>
+<body>
+
+    <div>
+        <input id="someinput" type="text">
+    </div>
+</body>
+</html>

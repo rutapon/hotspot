@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<!-- xlsx.js (C) 2013-2015 SheetJS http://sheetjs.com -->
+<!-- vim: set ts=2: -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!--<script src="http://cburgmer.github.io/rasterizeHTML.js/rasterizeHTML.allinone.js"></script>-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script src="html2canvas.js"></script>
+    <!--<script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.138/jspdf.min.js"></script>-->
+    <script src="jspdf.min.js"></script>
+
+    <script>
+
+        var pdf = new jsPDF('p', 'pt', 'a4');
+        function doit() { export_table_to_excel('table'); }
+
+        var firstAdd = true;
+
+
+        function genPdf(cb) {
+            var options = {
+                //pagesplit: true
+            };
+
+            if (firstAdd) { firstAdd = false; } else { pdf.addPage(); }
+
+            pdf.addHTML(document.body, options, function () {
+                if (cb) cb();
+            });
+        }
+
+        function showPdf() {
+            window.location = pdf.output('datauristring');
+        }
+        function savePdf(name) {
+            pdf.save(name);
+        }
+
+        function clear() {
+            $('body').html('');
+        }
+
+        function set(htmlStr) {
+
+            $('body').html(htmlStr);
+        }
+</script>
+    <style type="text/css">
+    </style>
+</head>
+<body style="text-align: justify; width: 595px; height: 842px">
+    <b>SheetJS JS-XLSX In-Browser HTML Table to XLSX Export Demo</b><br />
+
+
+
+    <!-- <input type="submit" value="Export to Excel!" onclick="doit();">
+    <input type="submit" value="pdf" onclick="genPdf();">-->
+
+
+    <!--<iframe id="if" src="" width="595 " height="842" scrolling="yes" ></iframe>-->
+
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36810333-1']);
+        _gaq.push(['_setDomainName', 'sheetjs.com']);
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>MN Menu Test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <meta name="viewport" content="initial-scale=1"></meta>
+    <script src="../lib/jquery/jquery-2.1.1.min.js"></script>
+
+
+
+    <!-- <script src="test.js"></script> -->
+    <script>
+        //console.log('script');
+        $('script').each(function (id) {
+            var src = $(this).attr('src');
+            console.log(src);
+            if (src) $(this).attr('src', src + '?123');
+
+
+            //console.log(el.attr('scr'));
+        });
+        $(function () {
+            $('label').val('hello').text('text');
+        })
+
+        var myNumber = 70700;
+        function formatInt(intNum) {
+            if (intNum > 9999) {
+                return intNum;
+            } else {
+                let formattedNumber = ("000" + intNum).slice(-4);
+                return formattedNumber;
+            }
+        }
+
+        console.log(formatInt(myNumber));
+    </script>
+</head>
+
+<body>
+    <label></label>
+</body>
+
+</html>

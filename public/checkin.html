@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="TIS-620">
+    <!--  <meta charset="Windows-874">-->
+    <!-- <meta http-equiv="content-type" content="text/html; charset=TIS-620" />-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anda-Stock</title>
+
+
+    <!--<link rel="shortcut icon" href="../demos/favicon.ico">-->
+    <!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">-->
+    <link href="css/family.css" rel="stylesheet" />
+
+    <link href="lib/jquery.mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="css/jqm-demos.css" rel="stylesheet" />
+
+    <link href="css/index.css" rel="stylesheet" />
+
+    <script src="lib/underscore/underscore-min.js"></script>
+    <script src="lib/lokijs/lokijs.min.js"></script>
+
+    <script src="lib/jquery/jquery-2.1.1.min.js"></script>
+    <script src="lib/jquery.mobile/jquery.mobile-1.4.5.js"></script>
+
+    <script src="lib/backbone/backbone-min.js"></script>
+
+    <script src="lib/xdr.js"></script>
+    <script src="lib/socket.io-1.2.1.js"></script>
+
+    <script src="lib/step/step.js"></script>
+    <script src="lib/async/async.min.js"></script>
+
+    <script src="NwLib/NwLib.js"></script>
+    <script src="NwUtil/NwDataMsgObj.js"></script>
+
+    <script src="NwConn/NwWsClient.js"></script>
+    <script src="service_conn/NwServiceConn.js"></script>
+
+
+    <link href="lib/jqm-datebox/jqm-datebox.min.css" rel="stylesheet" />
+    <script src="lib/jqm-datebox/jqm-datebox.core.min.js"></script>
+    <script src="lib/jqm-datebox/jqm-datebox.mode.calbox.min.js"></script>
+
+    <script src="NwLib/NwSS.min.js"></script>
+    <script src="getPassword.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="checkin.js"></script>
+</head>
+
+<body>
+
+    <div data-role="page" data-title="Anda-Stock" class="jqm-demos ui-responsive-panel">
+
+
+        <!-- /header -->
+        <div role="main" id="main" class="ui-content jqm-content jqm-fullwidth">
+            <h1>Andamania Hotspot</h1>
+
+            <label>
+                <b>Username</b>
+            </label>
+            <input type="text" placeholder="Enter Username (more then three character)" id="user" name="uname" autocomplete="off">
+            <label>
+                <b>Room Number</b>
+            </label>
+            <input type="text" placeholder="Enter Number" id="roomNumber" name="uname" autocomplete="off">
+            <label>
+                <b>Checkout</b>
+            </label>
+            <div>
+                <input id="endTime" type="text" data-type="endTime">
+            </div>
+
+            <br>
+            <button type="button" id="Submit">Submit</button>
+        </div>
+
+
+        <div data-role="panel" data-display="reveal" data-theme="b" class="menu-panel">
+            <h2>
+                <a href="index.html" data-transition="flow">HOME</a>
+            </h2>
+
+            <ul data-role="listview" class="jqm-list ui-alt-icon ui-nodisc-icon">
+
+                <li data-role="collapsible" data-enhanced="true" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right"
+                    data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed">
+                    <h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed">
+                        <a href="#" class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-right ui-btn-inherit ui-icon-carat-d">Account Create
+                        </a>
+                    </h3>
+                    <div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+                        <ul>
+
+                            <li>
+                                <a href="Supplier.html" data-menu="Supplier" data-transition="flow">Supplier-Create</a>
+                            </li>
+
+                            <li>
+                                <a href="Stock.html" data-menu="Stock" data-transition="flow">Item-Create</a>
+                            </li>
+                            <!--    <li>
+                                <a href="OE.html" data-menu="OE" data-transition="flow">OE-Create</a>
+                            </li>-->
+
+                        </ul>
+                    </div>
+                </li>
+
+
+
+                <li data-role="collapsible" data-enhanced="true" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right"
+                    data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed">
+                    <h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed">
+                        <a href="#" class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-right ui-btn-inherit ui-icon-carat-d">Purchase
+                        </a>
+                    </h3>
+                    <div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+                        <ul>
+                            <li>
+                                <a href="ImportProducts.html" data-menu="Stock-In" data-transition="flow">Credit</a>
+                            </li>
+                            <!-- <li>
+                                <a href="ImportOE.html" data-menu="OE-In" data-transition="flow">OE-In</a>
+                            </li>-->
+
+                            <li>
+                                <a href="ImportProductsPettyCash.html" data-menu="Stock-In (PettyCash)" data-transition="flow">PettyCash</a>
+                            </li>
+                            <!--    <li>
+                                <a href="ImportOEPettyCash.html" data-menu="OE-In (PettyCash)" data-transition="flow">OE-In (PettyCash)</a>
+                            </li>-->
+                        </ul>
+                    </div>
+                </li>
+                <li data-role="collapsible" data-enhanced="true" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right"
+                    data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed">
+                    <h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed">
+                        <a href="#" class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-right ui-btn-inherit ui-icon-carat-d">Stock
+                        </a>
+                    </h3>
+                    <div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+                        <ul>
+                            <li>
+                                <a href="ExportProducts.html" data-menu="Stock-Out" data-transition="flow">Stock-Out</a>
+                            </li>
+                            <li>
+                                <a href="CheckProducts.html" data-menu="Stock-Checking" data-transition="flow">Stock-Checking</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li>
+                    <a href="Report.html" data-menu="Report" data-transition="flow">Report</a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- /panel -->
+
+
+
+        <!--        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="Supplier.html" data-transition="flow">Supplier</a>
+                    </li>
+                    <li>
+                        <a href="Products.html" data-transition="flow">Product</a>
+                    </li>
+                    <li>
+                        <a href="ImportProducts.html" data-transition="flow">Stock-In</a>
+                    </li>
+                    <li>
+                        <a href="ExportProducts.html" data-transition="flow">Stock-Out</a>
+                    </li>
+                    <li>
+                        <a href="CheckProducts.html" data-transition="flow">Stock-Checking</a>
+                    </li>
+                    <li>
+                        <a href="Report.html" data-transition="flow">Report</a>
+                    </li>
+                </ul>
+            </div>
+        </div>-->
+
+        <!-- /footer -->
+
+    </div>
+    <!-- /page -->
+
+    <!--       <div data-role="popup" id="popupLogout" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <iframe src="setting/logout.html" width="480" height="320" seamless=""></iframe>
+            </div>
+              <div data-role="popup" id="popupMap" data-overlay-theme="a" data-theme="a" data-corners="false" data-tolerance="15,15">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <iframe src="setting/login.html" width="480" height="320" seamless=""></iframe>
+            </div>-->
+
+
+    <div data-role="page" id="p1">
+
+        <div data-role="header">
+            <h1>Landing page</h1>
+        </div>
+        <!-- /header -->
+
+        <div role="main" class="ui-content jqm-content">
+
+            <p>This is just a landing page.</p>
+
+            <a href="#panel-responsive-page1" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-back ui-btn-icon-left">Back</a>
+
+        </div>
+        <!-- /content -->
+
+    </div>
+    <!-- /page -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="TIS-620">
+    <meta charset="Windows-874">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Persistent toolbars - jQuery Mobile Demos</title>
+    <!--<link rel="shortcut icon" href="../demos/favicon.ico">-->
+    <!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">-->
+    <link href="css/family.css" rel="stylesheet" />
+
+    <link href="lib/jquery.mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="css/jqm-demos.css" rel="stylesheet" />
+
+    <script src="lib/underscore/underscore-min.js"></script>
+    <script src="lib/jquery/jquery-2.1.1.min.js"></script>
+    <script src="lib/jquery.mobile/jquery.mobile-1.4.5.js"></script>
+
+    <script src="lib/jquery-mobile-datepicker-wrapper/external/jquery-ui/datepicker.js"></script>
+    <link href="lib/jquery-mobile-datepicker-wrapper/jquery.mobile.datepicker.css" rel="stylesheet" />
+    <script src="lib/jquery-mobile-datepicker-wrapper/jquery.mobile.datepicker.js"></script>
+    <link href="lib/jquery-mobile-datepicker-wrapper/jquery.mobile.datepicker.theme.css" rel="stylesheet" />
+
+    <script src="lib/backbone/backbone-min.js"></script>
+
+    <link href="lib/backgrid/lib/backgrid.css" rel="stylesheet" />
+    <script src="lib/backgrid/lib/backgrid.min.js"></script>
+    <link href="lib/backgrid-select-all-master/backgrid-select-all.min.css" rel="stylesheet" />
+    <script src="lib/backgrid-select-all-master/backgrid-select-all.min.js"></script>
+
+    <script src="lib/xdr.js"></script>
+    <script src="lib/socket.io-1.2.1.js"></script>
+
+    <script src="lib/step/step.js"></script>
+    <script src="lib/async/async.min.js"></script>
+
+    <script src="NwLib/NwLib.js"></script>
+    <script src="NwUtil/NwDataMsgObj.js"></script>
+
+    <script src="NwConn/NwWsClient.js"></script>
+    <script src="service_conn/NwStockServiceConn.js"></script>
+
+    <script src="lib/xlsx/xlsx.core.min.js"></script>
+    <script src="lib/xlsx/Blob.js"></script>
+    <script src="lib/xlsx/FileSaver.js"></script>
+    <script src="lib/xlsx/NwXlsx.js"></script>
+
+    <script src="js/models/product.js"></script>
+    <script src="js/models/Stock.js"></script>
+
+    <script src="js/collections/products.js"></script>
+
+    <script src="js/views/CreateProductTableTr.js"></script>
+    <script src="js/views/CreateProductTable.js"></script>
+    <script src="js/views/CreateProduct.js"></script>
+    <script src="js/views/ShowProduct.js"></script>
+    <script src="js/views/EditProductTableTr.js"></script>
+    <script src="js/views/EditProduct.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <link href="css/index.css" rel="stylesheet" />
+    <script src="index.js"></script>
+
+</head>
+<body>
+
+    <div data-role="header" data-position="fixed" data-theme="a">
+        <!-- <a href="../toolbar/" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>-->
+
+        <h1>Stock อันดามาเนีย</h1>
+
+        <a id="menu" data-icon="grid" data-iconpos="notext">Menu</a>
+        <a id="setting" data-icon="gear" data-iconpos="notext">Add</a>
+
+        <!--  <form> 
+            <label for="searchbar" class="ui-hidden-accessible">Search:</label>
+            <input type="search" name="searchbar" id="search1" value="" data-theme="d" data-mini="true" />
+        </form>-->
+
+
+    </div>
+
+    <div data-role="page" data-title="NwDict" class="jqm-demos ui-responsive-panel">
+
+        <!-- /header -->
+        <div role="main" id="main" class="ui-content jqm-content jqm-fullwidth">
+
+            <select name="select-stock" class="select-stock" data-mini="true" data-native-menu="true">
+            </select>
+
+            <div data-role="tabs" id="tabs">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#main1" class="ui-btn-active" id="createProdutNav">สร้าง</a></li>
+                        <li><a href="#main2" id="showProductNav" data-transition="slide">แสดงรายการสินค้า</a></li>
+                        <li><a href="#main3" id="editProductNav">แก้ใข</a></li>
+                        <!--ui-disabled  data-direction="reverse"-->
+
+                    </ul>
+                </div>
+
+                <div id="main1">
+                    <br />
+                    <div class="ui-grid-a ui-responsive">
+                        <div class="ui-block-a">
+
+                            <div>
+
+                                <input type="text" id="chooseFileName" disabled="disabled" data-mini="true" value="No file select" />
+                                <!--<input type="button" id="chooseFileButton" data-mini="true"  value="Upload File">-->
+                                <button class="ui-btn ui-icon-arrow-u ui-btn-icon-left  ui-corner-all" id="chooseFileButton" data-mini="true">Upload File</button>
+
+                                <input id="chooseFileInput" type="file" style="display: none;" />
+                            </div>
+                        </div>
+
+                        <div class="ui-block-b">
+                            <div id="dropFileInput">Drop an XLSX / XLSM / XLSB / ODS / XLS / XML file here to import sheet data</div>
+
+                        </div>
+
+                    </div>
+                    <table id="CreateStockTable" class="StockTable" border="0">
+                        <tbody>
+                            <tr>
+                                <th>Code</th>
+                                <th>ชื่อ</th>
+                                <th>หน่วย</th>
+                                <th>รายละเอียด</th>
+
+                            </tr>
+                            <script type="text/template" id="CreateStockTable-tr-template">
+                         
+                            <td><input placeholder="Code" data-type="code" value="<%- code %>" /></td>
+                            <td><input placeholder="ชื่อ" data-type="name" value="<%- name %>" /></td>
+                            <td><input placeholder="หน่วย" data-type="unit_type" value="<%- unit_type %>" /></td>
+                            <td><input placeholder="รายละเอียด" data-type="description" value="<%- description %>" /></td>
+                        
+                            </script>
+
+                            <!-- <tr class="CreateStockTable-tr">
+                                <td>
+                                    <input placeholder="Code" value="" /></td>
+                                <td>
+                                    <input placeholder="ชื่อ" value="" /></td>
+                                <td>
+                                    <input placeholder="หน่วย" value="" /></td>
+                                <td>
+                                    <input placeholder="รายละเอียด" value="" /></td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                    <hr />
+                    <!--<input type="button" class="CreateNewProductRow" value="เพิ่มสินค้า">-->
+
+
+                    <!-- <input type="button" class="ClearNewProductRow" value="Clear Table">
+                    <input type="button" class="SaveNewProductRows" value="บันทึกรายการสินค้า">-->
+
+                    <button class="ClearNewProductRow ui-btn ui-icon-delete ui-btn-icon-left  ui-corner-all" id="Button2" data-mini="true">Clear Table</button>
+                    <button class="SaveNewProductRows ui-btn ui-icon-action ui-btn-icon-left  ui-corner-all">บันทึกรายการสินค้า</button>
+
+                </div>
+                <div id="main2">
+
+                    <br />
+
+                    <input type="search" data-theme="a" name="searchbar" class="show_product_search" data-mini="true" value="" placeholder="search by code or name" data-inline="true">
+
+                    <!--<input type="button" data-mini="true" id="downLoadProductFile" value="Download File Exel">-->
+                    <button class="ui-btn ui-icon-arrow-d ui-btn-icon-left  ui-corner-all" id="downLoadProductFile">Download File Exel</button>
+
+                    <div id="select-all-result"></div>
+
+                </div>
+
+                <div id="main3">
+                    <br />
+                    <input type="search" data-theme="a" name="searchbar" class="show_product_search" data-mini="true" value="" placeholder="search by code or name" data-inline="true">
+                    <table id="fooBar" class="StockTable" border="0" style='text-align: justify;'>
+                        <tr>
+                            <th>Code</th>
+                            <th>ชื่อ</th>
+                            <th>หน่วย</th>
+                            <th>รายละเอียด</th>
+                            <th></th>
+                            <th></th>
+
+                        </tr>
+                        <script type="text/template" id="ShowStockTable-tr-template">
+                         
+                            <td><%- code %></td>
+                            <td><%- name %></td>
+                            <td><%- unit_type %></td>
+                            <td><%- description %></td>
+                            <td><input type="button" class="editButton" data-mini="true" value="แก้ใข"></td>
+                            <td><input type="button" class="deleteButton" data-mini="true"  value="ลบ"> </td>
+                        </script>
+                        <script type="text/template" id="EditStockTable-tr-template">
+                         
+                            <td><input placeholder="Code" data-type="code" value="<%- code %>" /></td>
+                            <td><input placeholder="ชื่อ" data-type="name" value="<%- name %>" /></td>
+                            <td><input placeholder="หน่วย" data-type="unit_type" value="<%- unit_type %>" /></td>
+                            <td><input placeholder="รายละเอียด" data-type="description" value="<%- description %>" /></td>
+                            <td><input type="button" class="cancelEditButton" data-mini="true" value="ยกเลิก"></td>
+                            <td><input type="button" class="saveButton" data-mini="true" value="บันทึก"> </td>
+
+                        </script>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /content -->
+
+        <div data-role="panel" data-display="push" data-theme="b" id="menu-panel">
+            <h2><a>menu</a></h2>
+
+            <ul data-role="listview">
+                <li>
+                    <a href="Products.html" data-transition="slide">ชนิดสินค้า</a>
+                </li>
+                <li>
+                    <a href="ImportProducts.html" data-transition="slide">นำสินค้าเข้า</a>
+                </li>
+                <li>
+                    <a href="ExportProducts.html" data-transition="slide">นำสินค้าออก</a>
+                </li>
+                <li>
+                    <a href="Reprort.html" data-transition="slide">รายงาน</a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- /panel -->
+
+        <div data-role="panel" data-position="right" data-display="reveal" data-theme="a" id="setting-panel">
+
+            <form class="userform">
+
+                <h2>Login</h2>
+
+                <label for="name">Username:</label>
+                <input type="text" name="name" id="name" value="" data-clear-btn="true" data-mini="true">
+
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+
+                <div class="ui-grid-a">
+                    <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini">Cancel</a></div>
+                    <div class="ui-block-b"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini">Save</a></div>
+                </div>
+            </form>
+
+        </div>
+        <!-- /panel -->
+
+    </div>
+    <!-- /page -->
+
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="a">
+
+        <!-- /navbar -->
+    </div>
+    <!-- /footer -->
+
+    <div data-role="page" id="p1">
+
+        <div data-role="header">
+            <h1>Landing page</h1>
+        </div>
+        <!-- /header -->
+
+        <div role="main" class="ui-content jqm-content">
+
+            <p>This is just a landing page.</p>
+
+            <a href="#panel-responsive-page1" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini ui-icon-back ui-btn-icon-left">Back</a>
+
+        </div>
+        <!-- /content -->
+
+    </div>
+    <!-- /page -->
+
+
+</body>
+</html>

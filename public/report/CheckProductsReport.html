@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../css/family.css" rel="stylesheet" />
+    <!--<link href="../lib/jquery.mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" />-->
+    <link href="../css/jqm-demos.css" rel="stylesheet" />
+
+    <script src="../lib/jquery/jquery-2.1.1.min.js"></script>
+        <!--<script src="../lib/jquery.mobile/jquery.mobile-1.4.5.min.js"></script>-->
+
+    <script src="../lib/underscore/underscore-min.js"></script>
+    <script src="../lib/backbone/backbone-min.js"></script>
+
+    <link href="../lib/backgrid/lib/backgrid.css" rel="stylesheet" />
+    <script src="../lib/backgrid/lib/backgrid.js"></script>
+
+    <script src="../app/models/product.js"></script>
+    <script src="../app/collections/products.js"></script>
+
+    <!-- <script src="../app/views_report/ReportStockCard.js"></script> -->
+
+    <link href="../css/index.css" rel="stylesheet" />
+    <script src="CheckProductsReport.js"></script>
+
+    <style type="text/css">
+        td {
+            border-style: none;
+            border-color: inherit;
+            border-width: medium;
+            padding-top: 1px;
+            padding-right: 1px;
+            padding-left: 1px;
+            color: black;
+            font-size: 11.0pt;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            font-family: Tahoma, sans-serif;
+            text-align: general;
+            vertical-align: bottom;
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            page-break-after: always;
+            page-break-before: always;
+            page-break-inside: avoid;
+        }
+
+        /*.ReportStockCardEach :not(:first-child){
+            
+            page-break-inside: avoid;
+        }*/
+
+        
+        .ui-content {
+            padding: 0;
+        }
+
+    </style>
+
+    <script>    
+    </script>
+</head>
+<body>
+
+    <div data-role="page" data-title="Anda-Stock" class="jqm-demos ui-responsive-panel">
+
+        <div role="main" id="main" class="ui-content jqm-content jqm-fullwidth">
+
+            <h1 style="text-align: center;">report</h1>
+            <h3 class="h_detail" style="text-align: center;"></h3>
+
+            <div class="ReportTable"></div>
+
+        </div>
+
+
+    </div>
+    <!-- /page -->
+
+</body>
+</html>

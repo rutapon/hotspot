@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="TIS-620">
+    <!--  <meta charset="Windows-874">-->
+    <!-- <meta http-equiv="content-type" content="text/html; charset=TIS-620" />-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anda-Stock</title>
+
+    <link href="css/family.css" rel="stylesheet" />
+
+    <link href="lib/jquery.mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <link href="css/jqm-demos.css" rel="stylesheet" />
+
+    <link href="css/index.css" rel="stylesheet" />
+
+    <script src="lib/underscore/underscore-min.js"></script>
+    <script src="lib/lokijs/lokijs.min.js"></script>
+
+    <script src="lib/jquery/jquery-2.1.1.min.js"></script>
+    <script src="lib/jquery.mobile/jquery.mobile-1.4.5.js"></script>
+
+    <link href="lib/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet">
+    <script src="lib/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+
+    <script src="lib/backbone/backbone-min.js"></script>
+
+    <script src="lib/xdr.js"></script>
+    <script src="lib/socket.io-1.2.1.js"></script>
+
+    <script src="lib/step/step.js"></script>
+    <script src="lib/async/async.min.js"></script>
+
+    <script src="NwLib/NwLib.js"></script>
+    <script src="NwUtil/NwDataMsgObj.js"></script>
+
+    <script src="NwConn/NwWsClient.js"></script>
+    <script src="service_conn/NwServiceConn.js"></script>
+
+
+    <link href="lib/jtable/themes/metro/lightgray/jtable.min.css" rel="stylesheet">
+    <script src="lib/jtable/jquery.jtable.js"></script>
+
+    <link href="lib/jqm-datebox/jqm-datebox.min.css" rel="stylesheet" />
+    <script src="lib/jqm-datebox/jqm-datebox.core.min.js"></script>
+    <script src="lib/jqm-datebox/jqm-datebox.mode.calbox.min.js"></script>
+
+    <script src="NwLib/NwSS.min.js"></script>
+    <script src="getPassword.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="home.js"></script>
+
+    <script src="usertable.js" type="text/javascript"></script>
+    <script src="networkConnectionTable.js" type="text/javascript"></script>
+
+    <script>
+        console.log(window.location.search);
+
+        if (window.location.hash) {
+            setTimeout(function () {
+                window.location = '/';
+            }, 2000)
+
+        } else if (window.location.search) {
+            //window.location.search = '';          
+            window.location.hash = 'update'
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <div role="main" id="main" class="ui-content jqm-content jqm-fullwidth">
+        <h1>Andamania Stock Update Page</h1>
+
+        key-> ctrl + shift + r
+        <br> for update new change
+        <hr>
+        <!-- <ul>
+                <li>Press <kbd>F12</kbd> to open Chrome Developer Tools (will pop up from bottom)</li>
+                <li><code>Application</code> tab</li>
+                <li><code>Clear storage</code> in left tree</li>
+                <li>Select the data items to clear, then click <code>Clear site data</code></li>
+            </ul> -->
+
+    </div>
+    <!-- /content -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<!-- xlsx.js (C) 2013-2015 SheetJS http://sheetjs.com -->
+<!-- vim: set ts=2: -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!--<script src="http://cburgmer.github.io/rasterizeHTML.js/rasterizeHTML.allinone.js"></script>-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script src="html2canvas.js"></script>
+    <!--<script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.138/jspdf.min.js"></script>-->
+    <script src="jspdf.min.js"></script>
+
+
+
+    <link rel="stylesheet" media="screen" href="../handsontable/handsontable.css">
+    <link rel="stylesheet" media="screen" href="../handsontable/pikaday/pikaday.css">
+    <script src="../handsontable/pikaday/pikaday.js"></script>
+    <script src="../handsontable/moment/moment.js"></script>
+    <script src="../handsontable/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="../handsontable/handsontable.js"></script>
+
+    <link rel="stylesheet" href="../handsontable/css/samples.css?20140331">
+    <link rel="stylesheet" href="../handsontable/css/font-awesome/css/font-awesome.min.css">
+
+
+    <script>
+
+        var pdf = new jsPDF('p', 'pt', 'a4');
+        function doit() { export_table_to_excel('table'); }
+
+        var firstAdd = true;
+
+
+        function genPdf(cb) {
+            var options = {
+                //pagesplit: true
+            };
+
+            if (firstAdd) { firstAdd = false; } else { pdf.addPage(); }
+
+            pdf.addHTML(document.body, options, function () {
+                if (cb) cb();
+            });
+        }
+
+        function showPdf() {
+            window.location = pdf.output('datauristring');
+        }
+        function savePdf(name) {
+            pdf.save(name);
+        }
+
+        function clear() {
+            $('body').html('');
+        }
+
+        function set(htmlStr) {
+
+            $('body').html(htmlStr);
+        }
+
+        $(function () {
+            function getCarData() {
+                return [
+                     ["ไทย", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                   ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                  ["Nissan", 2009, "black", "black"],
+                  ["Nissan", 2006, "blue", "blue"],
+                  ["Chrysler", 2004, "yellow", "black"],
+                  ["Volvo", 2012, "white", "gray"]
+                ];
+            }
+            var container = document.getElementById('table'),
+              hot;
+
+            hot = new Handsontable(container, {
+                data: getCarData(),
+                startRows: 7,
+                startCols: 4,
+                stretchH: 'none',
+                colHeaders: ['Car', 'Year', 'Chassis color', 'Bumper color'],
+                columns: [
+                  { readOnly: true },
+                  {
+                      type: 'numeric',
+                      strict: true
+                  },
+                  {
+                      type: 'dropdown',
+                      source: function () {
+                          console.log('call source');
+                          return ['yellow', 'red', 'orange', 'green', 'blue', 'gray', 'black', 'white'];
+                      },
+                      //editor: false
+                  },
+                  {
+                      type: 'autocomplete',
+                      source: ['yellow', 'red', 'orange', 'green', 'blue', 'gray', 'black', 'white'],
+                      filter: false
+                  }
+                ]
+            });
+
+        });
+
+</script>
+    <style type="text/css">
+    </style>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+
+        table#t01 tr:nth-child(even) {
+            background-color: #eee;
+        }
+
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        table#t01 th {
+            background-color: black;
+            color: white;
+        }
+    </style>
+
+</head>
+<body style="width: 595px; height: 842px; text-align: center;">
+
+
+    <h3 style="text-align: center; font: 21px verdana;">Products type 1    </h3>
+
+    <div style="margin: 30px">
+        <!--        <div id="table">
+        </div>-->
+
+        <table>
+            <tr>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Centro comercial Moctezuma</td>
+                <td>Francisco Chang</td>
+                <td>Mexico</td>
+            </tr>
+            <tr>
+                <td>Ernst Handel</td>
+                <td>Roland Mendel</td>
+                <td>Austria</td>
+            </tr>
+            <tr>
+                <td>Island Trading</td>
+                <td>Helen Bennett</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>Yoshi Tannamuri</td>
+                <td>Canada</td>
+            </tr>
+            <tr>
+                <td>Magazzini Alimentari Riuniti</td>
+                <td>Giovanni Rovelli</td>
+                <td>Italy</td>
+            </tr>
+
+        </table>
+    </div>
+      <h3 style="text-align: center; font: 21px verdana;">Products type 2    </h3>
+
+    <div style="margin: 30px">
+        <table id="t01">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>80</td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+</html>

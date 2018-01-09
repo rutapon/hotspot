@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta charset="TIS-620">
+    <title>Anda-Hotspot</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <meta name="viewport" content="initial-scale=1"></meta>
+    <script src="Menu/lib/jqmin.1.10.1.js" type="text/javascript"></script>
+    <script src="Menu/lib/jquery.hoverintent.r7.js" type="text/javascript"></script>
+    <script src="Menu/src/jquery.mnmenu.js" type="text/javascript"></script>
+    <!--<script src="../dist/jquery.mnmenu.0.0.17.js" type="text/javascript"></script>-->
+    <link href="Menu/styleIE.css" type="text/css" rel="stylesheet" />
+    <script src="lib/underscore/underscore-min.js"></script>
+    <script src="lib/backbone/backbone-min.js"></script>
+
+    <script src="lib/xdr.js"></script>
+    <script src="lib/socket.io-1.2.1.js"></script>
+
+
+    <script src="NwLib/NwLib.js"></script>
+    <script src="NwUtil/NwDataMsgObj.js"></script>
+
+    <script src="NwConn/NwWsClient.js"></script>
+    <script src="service_conn/NwServiceConn.js"></script>
+
+    <script src="index.js" type="text/javascript"></script>
+
+    <script>
+        var version = 3;
+        var currentVarsion = localStorage ? localStorage.getItem("anda-stk-version") : null;
+        if (localStorage) {
+            localStorage.setItem("anda-stk-version", version);
+
+            if (version != currentVarsion) {
+                alert('Update New Version')
+                var v = (new Date()).getTime();
+
+                window.location.href = 'update.html?v=' + v
+            }
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+    <ul id="idmenu">
+        <li data-href="networkLocal.html" data-menu="networkLocal">
+            <a href="#">
+                <span>Network local</span>
+            </a>
+        </li>
+
+        <li data-href="networkConnectionTable.html" data-menu="networkConnectionTable">
+            <a href="#">
+                <span>Network Connection</span>
+            </a>
+        </li>
+        <li data-href="checkin.html" data-menu="checkin">
+            <a href="#">
+                <span>Checkin</span>
+            </a>
+        </li>
+        <li data-href="usertable.html" data-menu="Users Table">
+            <a href="#">
+                <span>Hotsport Users Table</span>
+            </a>
+        </li>
+        <!-- <li data-href="update.html" data-menu="Update"><a href="#"><span>Update</span></a></li> -->
+        <li data-href="#update" data-menu="">
+            <a href="#">
+                <span>Update</span>
+            </a>
+        </li>
+    </ul>
+    <!-- src="Home.html" -->
+    <iframe id="mainFrame" height="95%" width="100%" style="overflow: hidden; border:none; position: absolute; "></iframe>
+</body>
+
+</html>

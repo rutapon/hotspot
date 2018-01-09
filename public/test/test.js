@@ -1,0 +1,4 @@
+
+$(function () {
+    $('body').html('newww')
+})

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../underscore.js"></script>
+    <script>
+        var objArry = [
+            { name: 'a', valuse: '1' },
+              { name: 'b', valuse: '2' },
+                { name: 'c', valuse: '3' },
+                  { name: 'd', valuse: '4' },
+                    { name: 'e', valuse: '5' }]
+
+        var result = _.filter(objArry, function (value, key) {
+            return value.name;
+        });
+        console.log('filter ' + result);
+
+        result = _.map(objArry, function (obj) {
+            return obj.name;
+        });
+
+        console.log('map ' + result);
+
+        result = _.pluck(objArry, 'name');
+
+        console.log('pluck ' + result);
+
+        result = [];
+        _.each(objArry, function (value, key) {
+            result.push(value.name);
+        });
+
+        console.log('each ' + result);
+    </script>
+</head>
+<body>
+</body>
+</html>

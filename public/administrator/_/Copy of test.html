@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../lib/underscore/underscore-min.js"></script>
+    <script src="../lib/jquery/jquery-2.1.1.min.js"></script>
+
+
+    <script src="../lib/jstree/dist/jstree.min.js"></script>
+    <link href="../lib/jstree/dist/themes/default-dark/style.min.css" rel="stylesheet" />
+
+    <script>
+        $(function () {
+            $(function () { $('#jstree_demo_div').jstree(); });
+
+            $('#jstree_demo_div').on("changed.jstree", function (e, data) {
+                console.log(data.selected);
+            });
+
+            $('button').on('click', function () {
+                $('#jstree').jstree(true).select_node('child_node_1');
+                $('#jstree').jstree('select_node', 'child_node_1');
+                $.jstree.reference('#jstree').select_node('child_node_1');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2 class="demoHeaders">Cleate User</h2>
+
+    <button id="create-list">create new user</button>
+    <br />
+    <br />
+    <div id="jstree_demo_div"></div>
+
+
+</body>
+</html>

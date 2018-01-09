@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <title></title>
+    <script src="../lib/underscore/underscore-min.js"></script>
+    <script src="../lib/jquery/jquery-2.1.1.min.js"></script>
+    <link href="../lib/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet" />
+    <!--<link href="../lib/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />-->
+    <script src="../lib/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <!--    <link href="../lib/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" rel="stylesheet" />-->
+    <!--<link href="../lib/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css" rel="stylesheet" />-->
+
+    <script src="../lib/xdr.js"></script>
+    <script src="../lib/socket.io-1.2.1.js"></script>
+
+    <script src="../lib/step/step.js"></script>
+    <script src="../lib/async/async.min.js"></script>
+
+    <script src="../NwLib/NwLib.js"></script>
+    <script src="../NwUtil/NwDataMsgObj.js"></script>
+
+    <script src="../NwConn/NwWsClient.js"></script>
+    <script src="../service_conn/NwServiceConn.js"></script>
+
+    <script src="../lib/backbone/backbone-min.js"></script>
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.0/backbone.localStorage-min.js" type="text/javascript"></script>-->
+
+    <script src="../app/models/UserModel.js"></script>
+    
+    <script src="models/ListModel.js"></script>
+    <script src="collections/ListsCollection.js"></script>
+
+    <script src="app.js"></script>
+    <script src="CreateList.js"></script>
+
+</head>
+<body>
+      <a href="/administrator/">back</a> || <a href="/">HOME</a> 
+    <div id="dialog-form" title="Create New List">
+        <p class="validateTips">All form fields are required.</p>
+
+        <form>
+            <fieldset>
+
+                <label class="ui-controlgroup-label">Type: </label>
+                <select id="list-type" class="selectmenu">
+                    <option>Store</option>
+                    <option>OE</option>
+
+                </select>
+                <br />
+                <label for="name">List Name: </label>
+                <input type="text" placeholder="name" name="name" id="name" value="" class="text ui-widget-content ui-corner-all">
+
+
+                <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                <!--<input type="submit" tabindex="-1" style="position: absolute; top: -1000px" />-->
+            </fieldset>
+        </form>
+    </div>
+
+
+    <div id="dialog-confirm" title="Delete?">
+        <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+    </div>
+
+    <!-- Controlgroup -->
+    <h2 class="demoHeaders">Cleate List: <label id="dpmName"></label></h2>
+
+
+    <button id="create-list">create new list</button>
+    <br />
+    <br />
+
+    <div id="showLists">
+        <div>
+            <fieldset>
+                <legend>Main-Store</legend>
+                <div class="controlgroup">
+                    <!--     <label class="ui-controlgroup-label">main</label>
+                <label class="ui-controlgroup-label">-</label>
+                <label class="ui-controlgroup-label">Store</label>-->
+
+                    <!--<label for="transmission-standard">Standard</label>-->
+                    <!--<input type="radio" name="transmission" id="transmission-standard">-->
+                    <!--<label for="transmission-automatic">Automatic</label>
+                <input type="radio" name="transmission" id="transmission-automatic">-->
+                    <!--  <label>
+                    <input type="checkbox" checked />using</label>-->
+
+
+                    <button>Rename</button>
+                    <button>Remove</button>
+
+                </div>
+            </fieldset>
+        </div>
+
+        <script type="text/template" id="listItemTemplate">
+        <fieldset>
+            <legend><%- listType %>-<%- name %></legend>
+                <button class="destroy">Remove</button>
+        </fieldset>
+        </script>
+
+    </div>
+
+</body>
+</html>

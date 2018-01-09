@@ -1,0 +1,87 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <title>jsTree test</title>
+
+    <link href="../lib/jstree/dist/themes/default/style.min.css" rel="stylesheet" />
+    <script src="../lib/underscore/underscore-min.js"></script>
+    <script src="../lib/jquery/jquery-2.1.1.min.js"></script>
+
+
+    <script src="../lib/jstree/dist/jstree.min.js"></script>
+
+    <script>
+        //$(function () {
+        //    // 6 create an instance when the DOM is ready
+        //    $('#jstree').jstree();
+        //    // 7 bind to events triggered on the tree
+        //    $('#jstree').on("changed.jstree", function (e, data) {
+        //        console.log(data.selected);
+        //    });
+        //    // 8 interact with the tree - either way is OK
+        //    $('button').on('click', function () {
+        //        $('#jstree').jstree(true).select_node('child_node_1');
+        //        $('#jstree').jstree('select_node', 'child_node_1');
+        //        $.jstree.reference('#jstree').select_node('child_node_1');
+        //    });
+        //});
+
+        $(function () {
+            var dataObj = [
+                       { "id": "ajson1", "text": "Simple root node", "state": { "selected": true }, },
+                       {
+                           "id": "ajson2", "text": "Root node 2",
+                           "state": { "opened": true },
+                           "children": [
+                                   { "id": "ajson3", "text": "Child 1", "icon": "jstree-file" },
+                             { "id": "ajson4", "text": "Child 2", "icon": "jstree-file" }, ]
+                       },
+
+            ];
+            $("#jstree").jstree({
+                "checkbox": {
+                    "keep_selected_style": false
+                },
+                "plugins": ["checkbox"],
+                'core': {
+
+                    'data': dataObj
+                }
+            }).on('changed.jstree', function (e, data) {
+                var i, j, r = [];
+                for (i = 0, j = data.selected.length; i < j; i++) {
+                    r.push(data.selected[i] + ':' + data.instance.get_node(data.selected[i]).text);
+                }
+                console.log('Selected: ' + r.join(', '));
+            });
+
+            function refresh() {
+                dataObj.push({ "id": "ajson331", "text": "Simple root 34234", "state": { "selected": true } });
+                //$('#jstree').jstree('select_node', 'ajson1');
+                var tree = $('#jstree').jstree(true);
+                tree.settings.core.data = dataObj;
+
+                //$('#jstree').jstree("refresh");
+                tree.refresh();
+            }
+
+            $('button').on('click', function () {
+                console.log('click');
+
+                var ids = $('#jstree').jstree('get_selected',true)
+                console.log(ids);
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <!-- 3 setup a container element -->
+    <div id="jstree">
+    </div>
+    <button>demo button</button>
+
+
+</body>
+</html>
+
